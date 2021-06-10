@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+}
+
+h2 {
+    color:maroon;
+    font-size: medium;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+p, h4 {
+    color: grey; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vacunacion</title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="estilos.css"> <!--Para llamar a los estilos de CSS-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Para que la página tenga un diseño responsivo-->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!--Para que sea compatible con navegadores web-->
+
+        <!--Llamada a la hoja de estilo de Bootstrap-->
+        <link rel="stylesheet" href="stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGs03+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!--Llamada a las librerias JQuery, Popper y Bootstrap-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src='https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js'></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#error").hide(); 
+                $("#enviado").hide();
+
+
+                $("#Formulario").submit(function(){
+                    var mensaje = "";
+
+                    if ($("#Nombre").val().trim().length == 0) {
+                        mensaje = "El nombre esta en blanco";
+                    } 
+
+                    if ($("#Apellidos").val().trim().length == 0) {
+                        mensaje = "El apellido esta en blanco";
+                    } 
+
+                    if ($("#Correo").val().trim().length == 0) {
+                        mensaje = "El correo electrónico esta en blanco";
+                    }
+
+                    if ($("#Rut").val().trim().length == 0) {
+                        mensaje = "El rut esta en blanco";
+                    }
+
+                    if ($("#Rut").val().trim().length > 9) {
+                        mensaje = "El rut ingresado es incorrecto";
+                    }
+
+                    if ($("#Rut").val().trim().length < 8) {
+                        mensaje = "El rut ingresado es incorrecto";
+                    }
+
+                    if ($("#Ciudad").val().trim().length == 0) {
+                        mensaje = "Ciudad esta en blanco";
+                    }
+
+                    if ($("#Comentarios").val().trim().length > 50) {
+                        mensaje = "Los comentarios son muy extensos";
+                    }
+
+                    if (mensaje != "") {
+                        $("#error").html(mensaje); 
+                        $("#error").show();       
+                        event.preventDefault();   
+                    }
+
+                    if(mensaje == "") {
+                        mensaje = "Se ha guardado la información"
+                        $("#enviado").html(mensaje); 
+                        $("#enviado").show();       
+                        event.preventDefault(); 
+                        $("#error").hide();
+                    }
+                });
+            })
+        </script>
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><img src="imagenes/logo.png" alt="Logo" width="40px" height="40px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collpase" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="main.html">Menú Principal<span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            Servicios
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="vacunacion.html">Vacunación</a> 
+                            <a class="dropdown-item" href="consulta.html">Consultas</a> 
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="operacion.html">Operaciones</a> 
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mascotas-atendidas.html">Galería Mascotas<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nuestro-equipo.html">Nuestro Equipo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto/Sobre la Clínica</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col">
+                    <br/><br/>
+                    <h2>Nuestra Politica de Vacunación</h2>
+                    <br/><br/>
+                    <h4>Nosotros como equipo siempre hemos estado muy preocupados por la salud y seguridad de nuestros animales.
+                    Por esta razón ocupamos elementos de total confianza entregada por nuestros distribuidores "Safe Delivery" para lograr
+                    el menor rating de infecciones. Podemos decir con confianza nuestra Clínica "Sanos por Siempre" es una de las más seguras
+                    en terminos de vacunación contra infecciones y desparacitación.</h4>
+                    <br/><br/>
+                    <h4>Por esto lo invitamos a agendar una hora para vacunar a su mascota con nuestros profesionales, para esto dirijase a la
+                    página</h4>
+                    <br/>
+                    <a class="btn btn-primary" href="contacto.html" role="button">Contáctanos</a>
+                    <br/>
+                </div>
+                <div class="col"><img src="imagenes/Racoon.png" alt="Racoon"></div>
+
+            </div>
+
+        </div>
+
+        <hr class="my-5" />
+
+        <section class="mb-5">
+            <h4 class="mb-5 text-center"><strong>Dejanos tus datos para organizar una visita!</strong></h4>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6">
+                    <form method="POST" action="ResFormulario.html" id="Formulario">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="Nombre">Nombre(s)</label>
+                                    <input type="text" id="Nombre" class="form-control" placeholder="Ingresa tu nombre"/>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="Apellidos">Apellidos</label>
+                                    <input type="text" id="Apellidos" class="form-control" placeholder="Ingresa tus apellidos"/>
+                                </div>
+                            </div>
+                        </div>
+                  
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="Correo">Correo Electronico</label>
+                            <input type="email" id="Correo" class="form-control" placeholder="Ingresa tu correo" />
+                        </div>
+    
+                        <div class="form-outline mb-4">
+                            <select name="IDs">
+                                <optgroup label ="IDs">
+                                    <option value="1">Rut</option>
+                                    <option value="2">Pasaporte</option>
+                                </optgroup>
+                            </select>
+                            <input type="number" id="Rut" class="form-control" placeholder="Ingresa tu rut sin puntos ni guión"/>
+                        </div>
+    
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="Ciudad">Ciudad de residencia</label>
+                                    <input type="text" id="Ciudad" class="form-control" placeholder="Ingresa tu ciudad"/>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="Telefono">Teléfono de Contacto</label>
+                                    <input type="number" id="Telefono" class="form-control" placeholder="Ingresa tu teléfono"/>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="form-outline mb-4">
+                            <label class ="form-label" for="Observaciones">Observaciones: </label>
+                            <textarea id="Comentarios" class="form-control"></textarea>
+                        </div>
+                        
+                  
+                        <button type="submit" id="enviar" class="btn btn-primary btn-block mb-4">Enviar</button>
+                        <button type="reset" id="limpiar" class="btn btn-danger btn-block mb-4">Limpiar</button>
+                        <div id="error" class="alert alert-danger" role="alert"></div>
+                        <div id= "enviado"class="alert alert-success" role="alert"></div>
+                    </form>
+                </div>
+            </div>
+
+        <!--Footer-->
+        <div class="jumbotron text-center" style="margin-bottom:0">
+            <h3>Clinica Veterinaria "Sanos por Siempre"</h3>
+          </div>
+    </body>
+
+</html>
